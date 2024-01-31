@@ -7,15 +7,8 @@ const StartupForm = ({ onSignUp }) => {
   const [revenue, setRevenue] = useState("");
 
   const handleSignUp = () => {
-    // Handle startup sign-up logic here
-    // console.log("Startup signed up:", {
-    //   companyName,
-    //   businessDescription,
-    //   revenue,
-    // });
     const startupData = { companyName, businessDescription, revenue };
     onSignUp(startupData);
-    // Clear form fields
     setCompanyName("");
     setBusinessDescription("");
     setRevenue("");

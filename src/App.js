@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Link, Route, Routes } from "react-router-dom";
 import SignUp from "./signUp/SignUp";
@@ -6,7 +5,7 @@ import SignIn from "./signIn/SignIn";
 import Home from "./Home/Home";
 import Investor from "./signIn/Investor";
 import Startup from "./signIn/Startup";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function App() {
   const [globalData, setGlobalData] = useState({

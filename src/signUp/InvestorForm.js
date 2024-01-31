@@ -1,4 +1,3 @@
-// InvestorForm.js
 import React, { useState } from "react";
 
 const InvestorForm = ({ onSignUp }) => {
@@ -6,12 +5,8 @@ const InvestorForm = ({ onSignUp }) => {
   const [password, setPassword] = useState("");
 
   const handleSignUp = () => {
-    // Handle investor sign-up logic here
-    // console.log("Investor signed up:", { userId, password });
-    // Handle investor sign-up logic here
     const investorData = { userId, password };
     onSignUp(investorData);
-    // Clear form fields
     setUserId("");
     setPassword("");
   };
