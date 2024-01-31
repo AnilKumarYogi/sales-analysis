@@ -1,22 +1,26 @@
 import React from "react";
 import InvestorForm from "./InvestorForm";
 import StartupForm from "./StartupForm";
-import { useState } from "react";
+// import { useState } from "react";
 
 const SignUp = ({ globalData, onDataUpdate }) => {
-  const [investorData, setInvestorData] = useState(globalData.investorData);
-  const [startupData, setStartupData] = useState(globalData.startupData);
+  // const [investorData, setInvestorData] = useState(globalData.investorData);
+  // const [startupData, setStartupData] = useState(globalData.startupData);
 
   const handleInvestorSignUp = (data) => {
     // Handle investor sign-up logic here
-    setInvestorData((prevData) => [...prevData, data]);
+    // setInvestorData((prevData) => [...prevData, data]);
+    const investorData = [...globalData.investorData, data];
+    const startupData = globalData.startupData;
     const newGlobalData = { investorData, startupData };
     onDataUpdate(newGlobalData);
   };
 
   const handleStartupSignUp = (data) => {
     // Handle startup sign-up logic here
-    setStartupData((prevData) => [...prevData, data]);
+    // setStartupData((prevData) => [...prevData, data]);
+    const startupData = [...globalData.startupData, data];
+    const investorData = globalData.investorData;
     const newGlobalData = { investorData, startupData };
     onDataUpdate(newGlobalData);
   };
@@ -28,10 +32,10 @@ const SignUp = ({ globalData, onDataUpdate }) => {
       <StartupForm onSignUp={handleStartupSignUp} />
 
       {/* visulize */}
-      {investorData.length > 0 && (
+      {/* {globalData.investorData.length > 0 && (
         <div>
           <h2>Investor Data</h2>
-          {investorData.map((data, index) => (
+          {globalData.investorData.map((data, index) => (
             <div key={index}>
               <pre>{JSON.stringify(data, null, 2)}</pre>
             </div>
@@ -39,16 +43,16 @@ const SignUp = ({ globalData, onDataUpdate }) => {
         </div>
       )}
 
-      {startupData.length > 0 && (
+      {globalData.startupData.length > 0 && (
         <div>
           <h2>Startup Data</h2>
-          {startupData.map((data, index) => (
+          {globalData.startupData.map((data, index) => (
             <div key={index}>
               <pre>{JSON.stringify(data, null, 2)}</pre>
             </div>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

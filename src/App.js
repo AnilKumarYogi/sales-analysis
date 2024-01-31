@@ -10,8 +10,18 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [globalData, setGlobalData] = useState({
-    investorData: [],
-    startupData: [],
+    investorData: [
+      { userId: "anil_yogi", password: "ythrbdh" },
+      { userId: "dhiraj", password: "yrvbnjstr" },
+    ],
+    startupData: [
+      {
+        companyName: "Tesla, Inc.",
+        businessDescription:
+          "Tesla is known for designing and manufacturing electric vehicles (EVs), energy storage solutions, and renewable energy products. The company's mission is to accelerate the world's transition to sustainable energy.",
+        revenue: "2.33TCr	",
+      },
+    ],
   });
 
   const handleGlobalData = (newGlobalData) => {

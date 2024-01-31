@@ -1,7 +1,19 @@
 // StartupCard.js
 import React from "react";
+import { useState } from "react";
 
 const StartupCard = ({ companyName, businessDescription }) => {
+  const [isInterested, setIsInterested] = useState(false);
+  const [countInterest, setcountInterest] = useState(0);
+
+  const handleInterestedClick = () => {
+    // Toggle the interest state for the investor
+    isInterested
+      ? setcountInterest(countInterest - 1)
+      : setcountInterest(countInterest + 1);
+    setIsInterested(!isInterested);
+  };
+
   return (
     <div
       style={{
@@ -13,6 +25,10 @@ const StartupCard = ({ companyName, businessDescription }) => {
     >
       <h3>{companyName}</h3>
       <p>{businessDescription}</p>
+      <p>Interested Investors: {countInterest}</p>
+      <button onClick={handleInterestedClick}>
+        {isInterested ? "Not Interested" : "Interested"}
+      </button>
     </div>
   );
 };
