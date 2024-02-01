@@ -9,8 +9,8 @@ import { useState } from "react";
 function App() {
   const [globalData, setGlobalData] = useState({
     investorData: [
-      { userId: "anil_yogi", password: "ythrbdh" },
-      { userId: "dhiraj", password: "yrvbnjstr" },
+      { userId: "anil", password: "yogi" },
+      { userId: "dhiraj", password: "fundrev" },
     ],
     startupData: [
       {
@@ -25,6 +25,10 @@ function App() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [salesData, setSalesData] = useState([]);
 
+  const [loginId, setloginId] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
+
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
   };
@@ -35,6 +39,16 @@ function App() {
 
   const handleSalesData = (data) => {
     setSalesData(data);
+  };
+
+  const handleLoginId = (data) => {
+    setloginId(data);
+  };
+  const handleLoginPassword = (data) => {
+    setLoginPassword(data);
+  };
+  const handleLoginMessage = (data) => {
+    setLoginMessage(data);
   };
 
   return (
@@ -65,7 +79,20 @@ function App() {
             <SignUp globalData={globalData} onDataUpdate={handleGlobalData} />
           }
         />
-        <Route path="/signIn/" element={<SignIn globalData={globalData} />} />
+        <Route
+          path="/signIn/"
+          element={
+            <SignIn
+              globalData={globalData}
+              loginId={loginId}
+              handleLoginId={handleLoginId}
+              loginPassword={loginPassword}
+              handleLoginPassword={handleLoginPassword}
+              loginMessage={loginMessage}
+              handleLoginMessage={handleLoginMessage}
+            />
+          }
+        />
         <Route
           path="/signIn/investor"
           element={<Investor globalData={globalData} />}
