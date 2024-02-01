@@ -4,7 +4,7 @@ import React from "react";
 
 const DisplayInterested = ({ startup, approvedUsers, handleApprovedUsers }) => {
   const companyName = startup.companyName;
-  const businessDescription = startup.businessDescription;
+  //   const businessDescription = startup.businessDescription;
   const interested = startup.interestShownBy;
 
   const handleClickApprove = (element) => {

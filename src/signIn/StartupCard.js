@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import { ResponsiveContainer } from "recharts";
-import PlotChart from "../Chart/BarChart";
+// import { ResponsiveContainer } from "recharts";
+// import PlotChart from "../Chart/BarChart";
 const StartupCard = ({
   idx,
   startup,
