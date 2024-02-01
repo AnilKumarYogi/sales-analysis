@@ -1,0 +1,20 @@
+Top bar (App.js) -> Home, SignIn, SignUp
+
+SignUp ----> InvestorForm   &&    StartupForm
+                |                   |
+                V                   V
+            [UserID]             [Companay Name]
+            [Password]          [Company Description]
+                                [Revenue]
+                                /
+                            /                         Flask server
+                        /                             (Back-end)
+                    /                                  /
+                /                                     /
+SignIn----> Investor         &&                    Startup  <--- csv file
+            |                                       |
+            V                                       V
+        StartupCard                             PlotChart    
+                                            (calls backend to   
+                                            Upload csv file)
+        
