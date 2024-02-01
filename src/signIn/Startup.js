@@ -3,14 +3,19 @@ import axios from "axios";
 import { ResponsiveContainer } from "recharts";
 import PlotChart from "../Chart/PlotChart";
 
-const Startup = () => {
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [salesData, setSalesData] = useState([]);
+const Startup = ({
+  handleFileChange,
+  handleSalesData,
+  salesData,
+  selectedFile,
+}) => {
+  // const [selectedFile, setSelectedFile] = useState(null);
+  // const [salesData, setSalesData] = useState([]);
   const [activeGraph, setActiveGraph] = useState(0);
 
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
+  // const handleFileChange = (e) => {
+  //   setSelectedFile(e.target.files[0]);
+  // };
 
   const handleFileUpload = async () => {
     const formData = new FormData();
@@ -22,8 +27,8 @@ const Startup = () => {
         formData
       );
 
-      console.log("anil->", response.data.data);
-      setSalesData(response.data.data);
+      // console.log("anil->", response.data.data);
+      handleSalesData(response.data.data);
     } catch (error) {
       console.error("Error uploading file:", error);
     }

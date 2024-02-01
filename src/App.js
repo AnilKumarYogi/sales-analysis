@@ -22,9 +22,21 @@ function App() {
     ],
   });
 
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [salesData, setSalesData] = useState([]);
+
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
   };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleSalesData = (data) => {
+    setSalesData(data);
+  };
+
   return (
     <div style={appContainer}>
       <nav style={navBar}>
@@ -58,7 +70,17 @@ function App() {
           path="/signIn/investor"
           element={<Investor globalData={globalData} />}
         />
-        <Route path="/signIn/startup" element={<Startup />} />
+        <Route
+          path="/signIn/startup"
+          element={
+            <Startup
+              handleFileChange={handleFileChange}
+              handleSalesData={handleSalesData}
+              selectedFile={selectedFile}
+              salesData={salesData}
+            />
+          }
+        />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
