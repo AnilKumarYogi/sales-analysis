@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# FundRev Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [FundRev Web Application](#fundrev-web-application)
+  - [Table of Contents](#table-of-contents)
+  - [Description](#description)
+  - [Features](#features)
+  - [Prerequisites](#prerequisites)
+  - [How to Run the Application](#how-to-run-the-application)
+  - [Deployed Link](#deployed-link)
+  - [Author](#author)
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+FundRev is a web application built with React that provides a platform for investors and startups. It includes user access control with sign-up functionality for investors and startups. Once signed in, startups can upload sales data from a CSV file, and the application generates a single-column chart displaying monthly sales figures.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Sign-up / User Access Control:**
 
-### `npm test`
+   - Investors can sign up with a user ID and password.
+   - Startups can sign up with company details including Company Name, Business Description, and Revenue.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Frontend Development:**
+   - Investors and startups can sign in to access the following functionalities:
+     - **Startups:**
+       - Upload "Sample Customer Data" CSV file.
+       - Generate a single-column chart displaying monthly sales figures.
+     - **Investors:**
+       - Upon login, display a card with the company name and business description
+       - Include an "Interested" button for the investor
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before you begin, ensure you have the following installed:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js: [Download Node.js](https://nodejs.org/)
+- NPM: [Download NPM](https://www.npmjs.com/get-npm)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Run the Application
 
-### `npm run eject`
+Follow the steps below to run the application locally:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/AnilKumarYogi/sales-analysis.git
+   ```
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd sales-analysis
+   ```
+3. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Run the Application:**
+   ```bash
+   npm start
+   Open your web browser and go to http://localhost:3000.
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Deployed Link
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+https://fundrev-website.netlify.app/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Author
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Anil Kumar Yogi
