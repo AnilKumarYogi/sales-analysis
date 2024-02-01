@@ -6,8 +6,14 @@ const StartupForm = ({ onSignUp }) => {
   const [businessDescription, setBusinessDescription] = useState("");
   const [revenue, setRevenue] = useState("");
 
+  const interestShownBy = [];
   const handleSignUp = () => {
-    const startupData = { companyName, businessDescription, revenue };
+    const startupData = {
+      companyName,
+      businessDescription,
+      revenue,
+      interestShownBy,
+    };
     onSignUp(startupData);
     setCompanyName("");
     setBusinessDescription("");

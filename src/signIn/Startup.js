@@ -1,22 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
-import { ResponsiveContainer } from "recharts";
+// import { ResponsiveContainer } from "recharts";
+// import Histogram from "../Chart/BarChart";
 import PlotChart from "../Chart/PlotChart";
-
+import DisplayInterested from "./DisplayInterested";
 const Startup = ({
   handleFileChange,
   handleSalesData,
   salesData,
   selectedFile,
+  globalData,
+  approvedUsers,
+  handleApprovedUsers,
 }) => {
-  // const [selectedFile, setSelectedFile] = useState(null);
-  // const [salesData, setSalesData] = useState([]);
-  const [activeGraph, setActiveGraph] = useState(0);
-
-  // const handleFileChange = (e) => {
-  //   setSelectedFile(e.target.files[0]);
-  // };
-
   const handleFileUpload = async () => {
     const formData = new FormData();
     formData.append("file", selectedFile);
@@ -34,34 +30,24 @@ const Startup = ({
     }
   };
 
-  const handleClickNext = () => {
-    if (activeGraph + 1 < salesData.length) setActiveGraph(activeGraph + 1);
-  };
-
-  const handleClickPrev = () => {
-    if (activeGraph - 1 > -1) setActiveGraph(activeGraph - 1);
-  };
-
+  const startupData = globalData.startupData;
   return (
     <div>
+      {startupData.length > 0 &&
+        startupData.map((startup, index) => (
+          <DisplayInterested
+            key={index}
+            startup={startup}
+            approvedUsers={approvedUsers}
+            handleApprovedUsers={handleApprovedUsers}
+          />
+        ))}
+
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleFileUpload}>Upload File</button>
       <br />
       <br />
-
-      {salesData.length > 0 ? (
-        <div>
-          <div style={{ textAlign: "right" }}>
-            <button onClick={handleClickPrev}>prev year</button>
-            <button style={{ marginRight: "500px" }} onClick={handleClickNext}>
-              next year
-            </button>
-          </div>
-          <ResponsiveContainer width="100%" height="100%">
-            <PlotChart data={salesData[activeGraph]} />
-          </ResponsiveContainer>
-        </div>
-      ) : null}
+      <PlotChart salesData={salesData} />
     </div>
   );
 };

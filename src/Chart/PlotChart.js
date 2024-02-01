@@ -1,38 +1,33 @@
-import React from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { ResponsiveContainer } from "recharts";
+import Histogram from "./BarChart";
+import { useState } from "react";
+const PlotChart = ({ salesData }) => {
+  const [activeGraph, setActiveGraph] = useState(0);
+  const handleClickNext = () => {
+    if (activeGraph + 1 < salesData.length) setActiveGraph(activeGraph + 1);
+  };
 
-const PlotChart = ({ data }) => {
+  const handleClickPrev = () => {
+    if (activeGraph - 1 > -1) setActiveGraph(activeGraph - 1);
+  };
+
+  //   const startupData = globalData.startupData;
   return (
-    <BarChart
-      width={800}
-      height={500}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis
-        dataKey="Month"
-        label={{ value: "Months", position: "insideBottom", offset: -5 }}
-      />
-      <YAxis label={{ value: "Sales", angle: -90, position: "insideLeft" }} />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="Sales" fill="#8884d8" />
-    </BarChart>
+    <>
+      {salesData.length > 0 ? (
+        <div>
+          <div style={{ textAlign: "right" }}>
+            <button onClick={handleClickPrev}>prev year</button>
+            <button style={{ marginRight: "500px" }} onClick={handleClickNext}>
+              next year
+            </button>
+          </div>
+          <ResponsiveContainer width="100%" height="100%">
+            <Histogram data={salesData[activeGraph]} />
+          </ResponsiveContainer>
+        </div>
+      ) : null}
+    </>
   );
 };
-
 export default PlotChart;

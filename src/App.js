@@ -11,6 +11,7 @@ function App() {
     investorData: [
       { userId: "anil", password: "yogi" },
       { userId: "dhiraj", password: "fundrev" },
+      { userId: "sunil", password: "yogi" },
     ],
     startupData: [
       {
@@ -18,6 +19,7 @@ function App() {
         businessDescription:
           "Tesla is known for designing and manufacturing electric vehicles (EVs), energy storage solutions, and renewable energy products. The company's mission is to accelerate the world's transition to sustainable energy.",
         revenue: "2.33TCr	",
+        interestShownBy: [],
       },
     ],
   });
@@ -28,6 +30,13 @@ function App() {
   const [loginId, setloginId] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
+
+  const [approvedUsers, setApprovedUsers] = useState([]);
+
+  const handleApprovedUsers = (data) => {
+    setApprovedUsers(data);
+    // console.log("anil->", approvedUsers);
+  };
 
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
@@ -50,6 +59,7 @@ function App() {
   const handleLoginMessage = (data) => {
     setLoginMessage(data);
   };
+  // console.log("sunil->", globalData.startupData);
 
   return (
     <div style={appContainer}>
@@ -95,7 +105,15 @@ function App() {
         />
         <Route
           path="/signIn/investor"
-          element={<Investor globalData={globalData} />}
+          element={
+            <Investor
+              globalData={globalData}
+              handleGlobalData={handleGlobalData}
+              loginId={loginId}
+              salesData={salesData}
+              approvedUsers={approvedUsers}
+            />
+          }
         />
         <Route
           path="/signIn/startup"
@@ -105,6 +123,9 @@ function App() {
               handleSalesData={handleSalesData}
               selectedFile={selectedFile}
               salesData={salesData}
+              globalData={globalData}
+              approvedUsers={approvedUsers}
+              handleApprovedUsers={handleApprovedUsers}
             />
           }
         />
