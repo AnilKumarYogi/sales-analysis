@@ -40,6 +40,13 @@ const DisplayInterested = ({
             </li>
           ))}
         </ul>
+
+        <h5>Approved Investors</h5>
+        <ul>
+          {approvedUsers[index].map((element) => (
+            <li>{element}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
