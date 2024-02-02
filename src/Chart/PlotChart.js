@@ -11,7 +11,6 @@ const PlotChart = ({ salesData }) => {
     if (activeGraph - 1 > -1) setActiveGraph(activeGraph - 1);
   };
 
-  //   const startupData = globalData.startupData;
   return (
     <>
       {salesData.length > 0 ? (

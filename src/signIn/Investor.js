@@ -8,9 +8,7 @@ const Investor = ({
   approvedUsers,
 }) => {
   const startupData = globalData.startupData;
-  // const updateInterestedInvestors = ()=>{
 
-  // };
   return (
     <div>
       <h1>Investor Page</h1>

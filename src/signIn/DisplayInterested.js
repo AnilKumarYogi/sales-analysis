@@ -1,15 +1,11 @@
 import React from "react";
-// import { useState } from "react";
-// import UploadCSV from "./UploadCSV";
 
 const DisplayInterested = ({ startup, approvedUsers, handleApprovedUsers }) => {
   const companyName = startup.companyName;
-  //   const businessDescription = startup.businessDescription;
   const interested = startup.interestShownBy;
 
   const handleClickApprove = (element) => {
     if (!approvedUsers.includes(element)) {
-      // If not present, add it to the approvedUsers array
       handleApprovedUsers((approvedUsers) => [...approvedUsers, element]);
     }
   };
@@ -24,7 +20,6 @@ const DisplayInterested = ({ startup, approvedUsers, handleApprovedUsers }) => {
       }}
     >
       <h3>{companyName}</h3>
-      {/* <p>{businessDescription}</p> */}
       <div>
         <h5>Interested Investors</h5>
         <ul>
@@ -37,7 +32,6 @@ const DisplayInterested = ({ startup, approvedUsers, handleApprovedUsers }) => {
             </li>
           ))}
         </ul>
-        {/* <UploadCSV /> */}
       </div>
     </div>
   );

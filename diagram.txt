@@ -11,7 +11,7 @@ SignUp ----> InvestorForm   &&    StartupForm
                         /                             (Back-end)
                     /                                  /
                 /                                     /
-SignIn----> Investor         &&                    Startup  <--- csv file
+SignIn----> Investor----------------------------Startup  <--- csv file
             |                                       |
             V                                       V
         StartupCard                             PlotChart    

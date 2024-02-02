@@ -1,7 +1,5 @@
 import React from "react";
 import { useState } from "react";
-// import { ResponsiveContainer } from "recharts";
-// import PlotChart from "../Chart/BarChart";
 const StartupCard = ({
   idx,
   startup,
@@ -16,20 +14,12 @@ const StartupCard = ({
     startup.interestShownBy.length
   );
 
-  // const [interestedInvestors, setInterestedInvestors] = useState(
-  //   startup.interestShownBy
-  // );
   const attributeToChange = "interestShownBy";
 
   const handleInterestedClick = () => {
-    // const interestedInvestors = startup.interestShownBy;
     const old = globalData.startupData[idx];
     const oldinterestedInvestors = old.interestShownBy;
     if (!oldinterestedInvestors.includes(loginId)) {
-      // setInterestedInvestors((interestedInvestors) => [
-      //   ...interestedInvestors,
-      //   loginId,
-      // ]);
       setcountInterest(countInterest + 1);
       const upinterestedInvestors = (oldinterestedInvestors) => [
         ...oldinterestedInvestors,
@@ -50,9 +40,6 @@ const StartupCard = ({
       const newGlobalData = { investorData, startupData };
       handleGlobalData(newGlobalData);
     } else {
-      // setInterestedInvestors((interestedInvestors) =>
-      //   interestedInvestors.filter((item) => item !== loginId)
-      // );
       setcountInterest(countInterest - 1);
       const data = {
         ...old,
@@ -73,7 +60,6 @@ const StartupCard = ({
     }
 
     setIsInterested(!isInterested);
-    // console.log("anil->", interestedInvestors);
   };
 
   const companyName = startup.companyName;

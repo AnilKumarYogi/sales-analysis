@@ -35,7 +35,6 @@ function App() {
 
   const handleApprovedUsers = (data) => {
     setApprovedUsers(data);
-    // console.log("anil->", approvedUsers);
   };
 
   const handleGlobalData = (newGlobalData) => {
@@ -59,7 +58,6 @@ function App() {
   const handleLoginMessage = (data) => {
     setLoginMessage(data);
   };
-  // console.log("sunil->", globalData.startupData);
 
   return (
     <div style={appContainer}>

@@ -1,7 +1,5 @@
 import React from "react";
 import axios from "axios";
-// import { ResponsiveContainer } from "recharts";
-// import Histogram from "../Chart/BarChart";
 import PlotChart from "../Chart/PlotChart";
 import DisplayInterested from "./DisplayInterested";
 const Startup = ({
@@ -22,8 +20,6 @@ const Startup = ({
         "https://fundrev-app.onrender.com/upload",
         formData
       );
-
-      // console.log("anil->", response.data.data);
       handleSalesData(response.data.data);
     } catch (error) {
       console.error("Error uploading file:", error);
