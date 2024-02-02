@@ -25,13 +25,13 @@ const Investor = ({
               handleGlobalData={handleGlobalData}
             />
             {approvedUsers[index].includes(loginId) ? (
-              <PlotChart salesData={startupUploadStates[index].salesData} />
+              <>
+                <h3>You are Approved by {startup.companyName}!!</h3>
+                <PlotChart salesData={startupUploadStates[index].salesData} />
+              </>
             ) : null}
           </div>
         ))}
-      {/* {approvedUsers.includes(loginId) ? (
-        <PlotChart salesData={salesData} />
-      ) : null} */}
     </div>
   );
 };
