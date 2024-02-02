@@ -47,15 +47,11 @@ function App() {
 
   const handleStartupUploadStates = (data) => {
     setStartupUploadStates(data);
+    // console.log("anil->", startupUploadStates);
   };
 
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
-    const updatedstartupUploadStates = [
-      ...startupUploadStates,
-      { selectedFile: null, salesData: [] },
-    ];
-    handleStartupUploadStates(updatedstartupUploadStates);
   };
 
   // const handleFileChange = (index, file) => {
@@ -118,7 +114,12 @@ function App() {
         <Route
           path="/signUp"
           element={
-            <SignUp globalData={globalData} onDataUpdate={handleGlobalData} />
+            <SignUp
+              globalData={globalData}
+              onDataUpdate={handleGlobalData}
+              startupUploadStates={startupUploadStates}
+              handleStartupUploadStates={handleStartupUploadStates}
+            />
           }
         />
         <Route
