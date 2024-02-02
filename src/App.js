@@ -10,7 +10,7 @@ function App() {
   const [globalData, setGlobalData] = useState({
     investorData: [
       { userId: "anil", password: "yogi" },
-      { userId: "dhiraj", password: "fundrev" },
+      { userId: "dhiraj", password: "fundrevStartup" },
       { userId: "sunil", password: "yogi" },
     ],
     startupData: [
