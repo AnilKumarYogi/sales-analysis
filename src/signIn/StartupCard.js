@@ -1,16 +1,69 @@
 import React from "react";
 import { useState } from "react";
+const StartupCard = ({
+  idx,
+  startup,
+  loginId,
+  globalData,
+  handleGlobalData,
+}) => {
+  const [isInterested, setIsInterested] = useState(
+    startup.interestShownBy.includes(loginId)
+  );
+  const [countInterest, setcountInterest] = useState(
+    startup.interestShownBy.length
+  );
 
-const StartupCard = ({ companyName, businessDescription }) => {
-  const [isInterested, setIsInterested] = useState(false);
-  const [countInterest, setcountInterest] = useState(0);
+  const attributeToChange = "interestShownBy";
 
   const handleInterestedClick = () => {
-    isInterested
-      ? setcountInterest(countInterest - 1)
-      : setcountInterest(countInterest + 1);
+    const old = globalData.startupData[idx];
+    const oldinterestedInvestors = old.interestShownBy;
+    if (!oldinterestedInvestors.includes(loginId)) {
+      setcountInterest(countInterest + 1);
+      const upinterestedInvestors = (oldinterestedInvestors) => [
+        ...oldinterestedInvestors,
+        loginId,
+      ];
+      const data = {
+        ...old,
+        [attributeToChange]: upinterestedInvestors(oldinterestedInvestors),
+      };
+
+      const startupData = [
+        ...globalData.startupData.slice(0, idx),
+        data,
+        ...globalData.startupData.slice(idx + 1),
+      ];
+
+      const investorData = globalData.investorData;
+      const newGlobalData = { investorData, startupData };
+      handleGlobalData(newGlobalData);
+    } else {
+      setcountInterest(countInterest - 1);
+      const data = {
+        ...old,
+        [attributeToChange]: oldinterestedInvestors.filter(
+          (item) => item !== loginId
+        ),
+      };
+
+      const startupData = [
+        ...globalData.startupData.slice(0, idx),
+        data,
+        ...globalData.startupData.slice(idx + 1),
+      ];
+
+      const investorData = globalData.investorData;
+      const newGlobalData = { investorData, startupData };
+      handleGlobalData(newGlobalData);
+    }
+
     setIsInterested(!isInterested);
   };
+
+  const companyName = startup.companyName;
+  const businessDescription = startup.businessDescription;
 
   return (
     <div

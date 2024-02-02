@@ -9,8 +9,9 @@ import { useState } from "react";
 function App() {
   const [globalData, setGlobalData] = useState({
     investorData: [
-      { userId: "anil_yogi", password: "ythrbdh" },
-      { userId: "dhiraj", password: "yrvbnjstr" },
+      { userId: "anil", password: "yogi" },
+      { userId: "dhiraj", password: "fundrevStartup" },
+      { userId: "sunil", password: "yogi" },
     ],
     startupData: [
       {
@@ -18,13 +19,46 @@ function App() {
         businessDescription:
           "Tesla is known for designing and manufacturing electric vehicles (EVs), energy storage solutions, and renewable energy products. The company's mission is to accelerate the world's transition to sustainable energy.",
         revenue: "2.33TCr	",
+        interestShownBy: [],
       },
     ],
   });
 
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [salesData, setSalesData] = useState([]);
+
+  const [loginId, setloginId] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
+
+  const [approvedUsers, setApprovedUsers] = useState([]);
+
+  const handleApprovedUsers = (data) => {
+    setApprovedUsers(data);
+  };
+
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
   };
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+
+  const handleSalesData = (data) => {
+    setSalesData(data);
+  };
+
+  const handleLoginId = (data) => {
+    setloginId(data);
+  };
+  const handleLoginPassword = (data) => {
+    setLoginPassword(data);
+  };
+  const handleLoginMessage = (data) => {
+    setLoginMessage(data);
+  };
+
   return (
     <div style={appContainer}>
       <nav style={navBar}>
@@ -53,12 +87,46 @@ function App() {
             <SignUp globalData={globalData} onDataUpdate={handleGlobalData} />
           }
         />
-        <Route path="/signIn/" element={<SignIn globalData={globalData} />} />
+        <Route
+          path="/signIn/"
+          element={
+            <SignIn
+              globalData={globalData}
+              loginId={loginId}
+              handleLoginId={handleLoginId}
+              loginPassword={loginPassword}
+              handleLoginPassword={handleLoginPassword}
+              loginMessage={loginMessage}
+              handleLoginMessage={handleLoginMessage}
+            />
+          }
+        />
         <Route
           path="/signIn/investor"
-          element={<Investor globalData={globalData} />}
+          element={
+            <Investor
+              globalData={globalData}
+              handleGlobalData={handleGlobalData}
+              loginId={loginId}
+              salesData={salesData}
+              approvedUsers={approvedUsers}
+            />
+          }
         />
-        <Route path="/signIn/startup" element={<Startup />} />
+        <Route
+          path="/signIn/startup"
+          element={
+            <Startup
+              handleFileChange={handleFileChange}
+              handleSalesData={handleSalesData}
+              selectedFile={selectedFile}
+              salesData={salesData}
+              globalData={globalData}
+              approvedUsers={approvedUsers}
+              handleApprovedUsers={handleApprovedUsers}
+            />
+          }
+        />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
