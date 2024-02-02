@@ -25,8 +25,11 @@ function App() {
     ],
   });
 
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [salesData, setSalesData] = useState([]);
+  // const [selectedFile, setSelectedFile] = useState(null);
+  // const [salesData, setSalesData] = useState([]);
+  const [startupUploadStates, setStartupUploadStates] = useState([
+    { selectedFile: null, salesData: [] },
+  ]);
 
   const [loginId, setloginId] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -42,17 +45,43 @@ function App() {
     setApprovedUsers(data);
   };
 
+  const handleStartupUploadStates = (data) => {
+    setStartupUploadStates(data);
+  };
+
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
+    const updatedstartupUploadStates = [
+      ...startupUploadStates,
+      { selectedFile: null, salesData: [] },
+    ];
+    handleStartupUploadStates(updatedstartupUploadStates);
   };
 
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
+  // const handleFileChange = (index, file) => {
+  //   const updatedStartupData = [...startupData];
+  //   updatedStartupData[index].selectedFile = file;
+  //   setStartupData(updatedStartupData);
+  // };
+  // const handleFileChange = (e) => {
+  //   setSelectedFile(e.target.files[0]);
+  // };
 
-  const handleSalesData = (data) => {
-    setSalesData(data);
-  };
+  // const handleSalesData = (data) => {
+  //   setSalesData(data);
+  // };
+
+  //anil
+  // useEffect(() => {
+
+  //   while (startupUploadStates.length < globalData.startupData.length) {
+  //     setStartupUploadStates((prevStates) => [
+  //       ...prevStates,
+  //       { selectedFile: null, salesData: [] },
+  //     ]);
+  //   }
+
+  // }, [globalData.startupData]);
 
   const handleLoginId = (data) => {
     setloginId(data);
@@ -115,7 +144,7 @@ function App() {
               globalData={globalData}
               handleGlobalData={handleGlobalData}
               loginId={loginId}
-              salesData={salesData}
+              startupUploadStates={startupUploadStates}
               approvedUsers={approvedUsers}
             />
           }
@@ -124,10 +153,12 @@ function App() {
           path="/signIn/startup"
           element={
             <Startup
-              handleFileChange={handleFileChange}
-              handleSalesData={handleSalesData}
-              selectedFile={selectedFile}
-              salesData={salesData}
+              // handleFileChange={handleFileChange}
+              // handleSalesData={handleSalesData}
+              // selectedFile={selectedFile}
+              // salesData={salesData}
+              startupUploadStates={startupUploadStates}
+              handleStartupUploadStates={handleStartupUploadStates}
               globalData={globalData}
               approvedUsers={approvedUsers}
               handleApprovedUsers={handleApprovedUsers}

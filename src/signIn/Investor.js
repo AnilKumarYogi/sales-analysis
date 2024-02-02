@@ -6,6 +6,7 @@ const Investor = ({
   loginId,
   salesData,
   approvedUsers,
+  startupUploadStates,
 }) => {
   const startupData = globalData.startupData;
 
@@ -15,18 +16,23 @@ const Investor = ({
       <h4>LoginId: {loginId}</h4>
       {startupData.length > 0 &&
         startupData.map((startup, index) => (
-          <StartupCard
-            key={index}
-            idx={index}
-            startup={startup}
-            loginId={loginId}
-            globalData={globalData}
-            handleGlobalData={handleGlobalData}
-          />
+          <div>
+            <StartupCard
+              key={index}
+              idx={index}
+              startup={startup}
+              loginId={loginId}
+              globalData={globalData}
+              handleGlobalData={handleGlobalData}
+            />
+            {approvedUsers.includes(loginId) ? (
+              <PlotChart salesData={startupUploadStates[index].salesData} />
+            ) : null}
+          </div>
         ))}
-      {approvedUsers.includes(loginId) ? (
+      {/* {approvedUsers.includes(loginId) ? (
         <PlotChart salesData={salesData} />
-      ) : null}
+      ) : null} */}
     </div>
   );
 };
