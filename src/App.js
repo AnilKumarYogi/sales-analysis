@@ -36,7 +36,7 @@ function App() {
   const [loginMessage, setLoginMessage] = useState("");
   const [loginType, setLoginType] = useState(null);
 
-  const [approvedUsers, setApprovedUsers] = useState([]);
+  const [approvedUsers, setApprovedUsers] = useState([[]]);
 
   const handleLoginType = (data) => {
     setLoginType(data);
@@ -119,6 +119,8 @@ function App() {
               onDataUpdate={handleGlobalData}
               startupUploadStates={startupUploadStates}
               handleStartupUploadStates={handleStartupUploadStates}
+              approvedUsers={approvedUsers}
+              handleApprovedUsers={handleApprovedUsers}
             />
           }
         />

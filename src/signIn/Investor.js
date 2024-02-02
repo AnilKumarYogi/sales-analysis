@@ -4,7 +4,6 @@ const Investor = ({
   globalData,
   handleGlobalData,
   loginId,
-  salesData,
   approvedUsers,
   startupUploadStates,
 }) => {
@@ -25,7 +24,7 @@ const Investor = ({
               globalData={globalData}
               handleGlobalData={handleGlobalData}
             />
-            {approvedUsers.includes(loginId) ? (
+            {approvedUsers[index].includes(loginId) ? (
               <PlotChart salesData={startupUploadStates[index].salesData} />
             ) : null}
           </div>

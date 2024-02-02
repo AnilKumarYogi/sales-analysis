@@ -52,6 +52,7 @@ const Startup = ({
               <div>
                 <DisplayInterested
                   key={index}
+                  index={index}
                   startup={startup}
                   approvedUsers={approvedUsers}
                   handleApprovedUsers={handleApprovedUsers}

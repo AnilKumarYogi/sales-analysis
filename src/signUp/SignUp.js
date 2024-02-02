@@ -7,6 +7,8 @@ const SignUp = ({
   onDataUpdate,
   startupUploadStates,
   handleStartupUploadStates,
+  approvedUsers,
+  handleApprovedUsers,
 }) => {
   const handleInvestorSignUp = (data) => {
     const investorData = [...globalData.investorData, data];
@@ -26,6 +28,9 @@ const SignUp = ({
       { selectedFile: null, salesData: [] },
     ];
     handleStartupUploadStates(updatedstartupUploadStates);
+
+    const updatedApprovedUsers = [...approvedUsers, []];
+    handleApprovedUsers(updatedApprovedUsers);
   };
 
   return (
