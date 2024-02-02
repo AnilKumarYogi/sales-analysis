@@ -3,10 +3,6 @@ import axios from "axios";
 import PlotChart from "../Chart/PlotChart";
 import DisplayInterested from "./DisplayInterested";
 const Startup = ({
-  // handleFileChange,
-  // handleSalesData,
-  // salesData,
-  // selectedFile,
   startupUploadStates,
   handleStartupUploadStates,
   globalData,
@@ -26,7 +22,6 @@ const Startup = ({
       const updatedstartupUploadStates = [...startupUploadStates];
       updatedstartupUploadStates[index].salesData = response.data.data;
       handleStartupUploadStates(updatedstartupUploadStates);
-      // handleSalesData(response.data.data);
     } catch (error) {
       console.error("Error uploading file:", error);
     }
@@ -34,8 +29,6 @@ const Startup = ({
 
   const handleFileChange = (e, index) => {
     const updatedstartupUploadStates = [...startupUploadStates];
-    // console.log("anile->", e);
-    // console.log("anilindex->", index);
     const file = e.target.files[0];
     updatedstartupUploadStates[index].selectedFile = file;
     handleStartupUploadStates(updatedstartupUploadStates);
@@ -72,12 +65,6 @@ const Startup = ({
           }
           return null;
         })}
-
-      {/* <input type="file" onChange={handleFileChange} />
-      <button onClick={handleFileUpload}>Upload File</button>
-      <br />
-      <br />
-      <PlotChart salesData={salesData} /> */}
     </div>
   );
 };

@@ -5,7 +5,6 @@ const SignIn = ({
   globalData,
   loginId,
   handleLoginId,
-  loginPassword,
   handleLoginPassword,
   loginMessage,
   handleLoginMessage,

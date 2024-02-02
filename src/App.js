@@ -25,8 +25,6 @@ function App() {
     ],
   });
 
-  // const [selectedFile, setSelectedFile] = useState(null);
-  // const [salesData, setSalesData] = useState([]);
   const [startupUploadStates, setStartupUploadStates] = useState([
     { selectedFile: null, salesData: [] },
   ]);
@@ -47,37 +45,11 @@ function App() {
 
   const handleStartupUploadStates = (data) => {
     setStartupUploadStates(data);
-    // console.log("anil->", startupUploadStates);
   };
 
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
   };
-
-  // const handleFileChange = (index, file) => {
-  //   const updatedStartupData = [...startupData];
-  //   updatedStartupData[index].selectedFile = file;
-  //   setStartupData(updatedStartupData);
-  // };
-  // const handleFileChange = (e) => {
-  //   setSelectedFile(e.target.files[0]);
-  // };
-
-  // const handleSalesData = (data) => {
-  //   setSalesData(data);
-  // };
-
-  //anil
-  // useEffect(() => {
-
-  //   while (startupUploadStates.length < globalData.startupData.length) {
-  //     setStartupUploadStates((prevStates) => [
-  //       ...prevStates,
-  //       { selectedFile: null, salesData: [] },
-  //     ]);
-  //   }
-
-  // }, [globalData.startupData]);
 
   const handleLoginId = (data) => {
     setloginId(data);
