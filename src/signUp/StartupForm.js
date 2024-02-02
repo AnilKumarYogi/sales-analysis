@@ -4,6 +4,7 @@ const StartupForm = ({ onSignUp }) => {
   const [companyName, setCompanyName] = useState("");
   const [businessDescription, setBusinessDescription] = useState("");
   const [revenue, setRevenue] = useState("");
+  const [message, setMessage] = useState("");
 
   const interestShownBy = [];
   const handleSignUp = () => {
@@ -14,6 +15,7 @@ const StartupForm = ({ onSignUp }) => {
       interestShownBy,
     };
     onSignUp(startupData);
+    setMessage("SignUp Done for the StartUp!!");
     setCompanyName("");
     setBusinessDescription("");
     setRevenue("");
@@ -43,6 +45,7 @@ const StartupForm = ({ onSignUp }) => {
       />
       <br />
       <button onClick={handleSignUp}>Sign Up</button>
+      <p>{message}</p>
     </div>
   );
 };

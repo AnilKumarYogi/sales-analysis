@@ -38,14 +38,17 @@ const SignIn = ({
       <button onClick={handleLoginClick}>login</button>
       <p>{loginMessage}</p>
       {loginMessage === "Login successful!" ? (
-        <ul>
-          <li>
-            <Link to="/signIn/investor">Investor</Link>
-          </li>
-          <li>
-            <Link to="/signIn/startup">Startup</Link>
-          </li>
-        </ul>
+        <div>
+          <p> with loginId: {loginId}</p>
+          <ul>
+            <li>
+              <Link to="/signIn/investor">Investor</Link>
+            </li>
+            <li>
+              <Link to="/signIn/startup">Startup</Link>
+            </li>
+          </ul>
+        </div>
       ) : null}
     </div>
   );
