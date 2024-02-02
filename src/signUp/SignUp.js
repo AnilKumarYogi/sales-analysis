@@ -2,7 +2,14 @@ import React from "react";
 import InvestorForm from "./InvestorForm";
 import StartupForm from "./StartupForm";
 
-const SignUp = ({ globalData, onDataUpdate }) => {
+const SignUp = ({
+  globalData,
+  onDataUpdate,
+  startupUploadStates,
+  handleStartupUploadStates,
+  approvedUsers,
+  handleApprovedUsers,
+}) => {
   const handleInvestorSignUp = (data) => {
     const investorData = [...globalData.investorData, data];
     const startupData = globalData.startupData;
@@ -14,7 +21,16 @@ const SignUp = ({ globalData, onDataUpdate }) => {
     const startupData = [...globalData.startupData, data];
     const investorData = globalData.investorData;
     const newGlobalData = { investorData, startupData };
+
     onDataUpdate(newGlobalData);
+    const updatedstartupUploadStates = [
+      ...startupUploadStates,
+      { selectedFile: null, salesData: [] },
+    ];
+    handleStartupUploadStates(updatedstartupUploadStates);
+
+    const updatedApprovedUsers = [...approvedUsers, []];
+    handleApprovedUsers(updatedApprovedUsers);
   };
 
   return (

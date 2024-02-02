@@ -15,7 +15,8 @@ function App() {
     ],
     startupData: [
       {
-        companyName: "Tesla, Inc.",
+        companyName: "Tesla",
+        password: "yogi",
         businessDescription:
           "Tesla is known for designing and manufacturing electric vehicles (EVs), energy storage solutions, and renewable energy products. The company's mission is to accelerate the world's transition to sustainable energy.",
         revenue: "2.33TCr	",
@@ -24,29 +25,30 @@ function App() {
     ],
   });
 
-  const [selectedFile, setSelectedFile] = useState(null);
-  const [salesData, setSalesData] = useState([]);
+  const [startupUploadStates, setStartupUploadStates] = useState([
+    { selectedFile: null, salesData: [] },
+  ]);
 
   const [loginId, setloginId] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
+  const [loginType, setLoginType] = useState(null);
 
-  const [approvedUsers, setApprovedUsers] = useState([]);
+  const [approvedUsers, setApprovedUsers] = useState([[]]);
 
+  const handleLoginType = (data) => {
+    setLoginType(data);
+  };
   const handleApprovedUsers = (data) => {
     setApprovedUsers(data);
   };
 
+  const handleStartupUploadStates = (data) => {
+    setStartupUploadStates(data);
+  };
+
   const handleGlobalData = (newGlobalData) => {
     setGlobalData(newGlobalData);
-  };
-
-  const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
-  };
-
-  const handleSalesData = (data) => {
-    setSalesData(data);
   };
 
   const handleLoginId = (data) => {
@@ -84,7 +86,14 @@ function App() {
         <Route
           path="/signUp"
           element={
-            <SignUp globalData={globalData} onDataUpdate={handleGlobalData} />
+            <SignUp
+              globalData={globalData}
+              onDataUpdate={handleGlobalData}
+              startupUploadStates={startupUploadStates}
+              handleStartupUploadStates={handleStartupUploadStates}
+              approvedUsers={approvedUsers}
+              handleApprovedUsers={handleApprovedUsers}
+            />
           }
         />
         <Route
@@ -98,6 +107,8 @@ function App() {
               handleLoginPassword={handleLoginPassword}
               loginMessage={loginMessage}
               handleLoginMessage={handleLoginMessage}
+              loginType={loginType}
+              handleLoginType={handleLoginType}
             />
           }
         />
@@ -108,7 +119,7 @@ function App() {
               globalData={globalData}
               handleGlobalData={handleGlobalData}
               loginId={loginId}
-              salesData={salesData}
+              startupUploadStates={startupUploadStates}
               approvedUsers={approvedUsers}
             />
           }
@@ -117,13 +128,16 @@ function App() {
           path="/signIn/startup"
           element={
             <Startup
-              handleFileChange={handleFileChange}
-              handleSalesData={handleSalesData}
-              selectedFile={selectedFile}
-              salesData={salesData}
+              // handleFileChange={handleFileChange}
+              // handleSalesData={handleSalesData}
+              // selectedFile={selectedFile}
+              // salesData={salesData}
+              startupUploadStates={startupUploadStates}
+              handleStartupUploadStates={handleStartupUploadStates}
               globalData={globalData}
               approvedUsers={approvedUsers}
               handleApprovedUsers={handleApprovedUsers}
+              loginId={loginId}
             />
           }
         />

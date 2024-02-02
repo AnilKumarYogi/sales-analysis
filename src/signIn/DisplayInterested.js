@@ -1,12 +1,20 @@
 import React from "react";
 
-const DisplayInterested = ({ startup, approvedUsers, handleApprovedUsers }) => {
+const DisplayInterested = ({
+  startup,
+  approvedUsers,
+  handleApprovedUsers,
+  index,
+}) => {
   const companyName = startup.companyName;
   const interested = startup.interestShownBy;
 
   const handleClickApprove = (element) => {
-    if (!approvedUsers.includes(element)) {
-      handleApprovedUsers((approvedUsers) => [...approvedUsers, element]);
+    if (!approvedUsers[index].includes(element)) {
+      const data = [...approvedUsers[index], element];
+      const updatedApprovedUsers = [...approvedUsers];
+      updatedApprovedUsers[index] = data;
+      handleApprovedUsers(updatedApprovedUsers);
     }
   };
 
@@ -30,6 +38,13 @@ const DisplayInterested = ({ startup, approvedUsers, handleApprovedUsers }) => {
                 Approve
               </button>
             </li>
+          ))}
+        </ul>
+
+        <h5>Approved Investors</h5>
+        <ul>
+          {approvedUsers[index].map((element) => (
+            <li>{element}</li>
           ))}
         </ul>
       </div>
