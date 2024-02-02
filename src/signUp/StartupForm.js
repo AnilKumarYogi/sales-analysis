@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const StartupForm = ({ onSignUp }) => {
   const [companyName, setCompanyName] = useState("");
+  const [password, setPassword] = useState("");
   const [businessDescription, setBusinessDescription] = useState("");
   const [revenue, setRevenue] = useState("");
   const [message, setMessage] = useState("");
@@ -10,6 +11,7 @@ const StartupForm = ({ onSignUp }) => {
   const handleSignUp = () => {
     const startupData = {
       companyName,
+      password,
       businessDescription,
       revenue,
       interestShownBy,
@@ -19,6 +21,7 @@ const StartupForm = ({ onSignUp }) => {
     setCompanyName("");
     setBusinessDescription("");
     setRevenue("");
+    setPassword("");
   };
 
   return (
@@ -29,7 +32,18 @@ const StartupForm = ({ onSignUp }) => {
         type="text"
         value={companyName}
         onChange={(e) => setCompanyName(e.target.value)}
+        style={{ marginLeft: "35px" }}
       />
+      <br />
+      <br />
+      <label>Password:</label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        style={{ marginLeft: "75px" }}
+      />
+      <br />
       <br />
       <label>Business Description:</label>
       <textarea
@@ -37,12 +51,15 @@ const StartupForm = ({ onSignUp }) => {
         onChange={(e) => setBusinessDescription(e.target.value)}
       />
       <br />
+      <br />
       <label>Revenue:</label>
       <input
         type="text"
         value={revenue}
         onChange={(e) => setRevenue(e.target.value)}
+        style={{ marginLeft: "80px" }}
       />
+      <br />
       <br />
       <button onClick={handleSignUp}>Sign Up</button>
       <p>{message}</p>

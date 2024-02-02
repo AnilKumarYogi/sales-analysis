@@ -15,7 +15,8 @@ function App() {
     ],
     startupData: [
       {
-        companyName: "Tesla, Inc.",
+        companyName: "Tesla",
+        password: "yogi",
         businessDescription:
           "Tesla is known for designing and manufacturing electric vehicles (EVs), energy storage solutions, and renewable energy products. The company's mission is to accelerate the world's transition to sustainable energy.",
         revenue: "2.33TCr	",
@@ -30,9 +31,13 @@ function App() {
   const [loginId, setloginId] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [loginMessage, setLoginMessage] = useState("");
+  const [loginType, setLoginType] = useState(null);
 
   const [approvedUsers, setApprovedUsers] = useState([]);
 
+  const handleLoginType = (data) => {
+    setLoginType(data);
+  };
   const handleApprovedUsers = (data) => {
     setApprovedUsers(data);
   };
@@ -98,6 +103,8 @@ function App() {
               handleLoginPassword={handleLoginPassword}
               loginMessage={loginMessage}
               handleLoginMessage={handleLoginMessage}
+              loginType={loginType}
+              handleLoginType={handleLoginType}
             />
           }
         />
@@ -124,6 +131,7 @@ function App() {
               globalData={globalData}
               approvedUsers={approvedUsers}
               handleApprovedUsers={handleApprovedUsers}
+              loginId={loginId}
             />
           }
         />

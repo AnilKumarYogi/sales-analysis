@@ -10,6 +10,7 @@ const Startup = ({
   globalData,
   approvedUsers,
   handleApprovedUsers,
+  loginId,
 }) => {
   const handleFileUpload = async () => {
     const formData = new FormData();
@@ -29,15 +30,21 @@ const Startup = ({
   const startupData = globalData.startupData;
   return (
     <div>
+      <h4>LoginId: {loginId}</h4>
       {startupData.length > 0 &&
-        startupData.map((startup, index) => (
-          <DisplayInterested
-            key={index}
-            startup={startup}
-            approvedUsers={approvedUsers}
-            handleApprovedUsers={handleApprovedUsers}
-          />
-        ))}
+        startupData.map((startup, index) => {
+          if (startup.companyName === loginId) {
+            return (
+              <DisplayInterested
+                key={index}
+                startup={startup}
+                approvedUsers={approvedUsers}
+                handleApprovedUsers={handleApprovedUsers}
+              />
+            );
+          }
+          return null;
+        })}
 
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleFileUpload}>Upload File</button>
