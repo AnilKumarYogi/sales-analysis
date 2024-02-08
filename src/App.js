@@ -128,10 +128,6 @@ function App() {
           path="/signIn/startup"
           element={
             <Startup
-              // handleFileChange={handleFileChange}
-              // handleSalesData={handleSalesData}
-              // selectedFile={selectedFile}
-              // salesData={salesData}
               startupUploadStates={startupUploadStates}
               handleStartupUploadStates={handleStartupUploadStates}
               globalData={globalData}

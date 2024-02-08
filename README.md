@@ -57,8 +57,8 @@ Follow the steps below to run the application locally:
 4. **Run the Application:**
    ```bash
    npm start
-   Open your web browser and go to http://localhost:3000.
    ```
+   Open your web browser and go to http://localhost:3000
 
 ## Deployed Link
 
